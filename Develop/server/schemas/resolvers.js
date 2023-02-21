@@ -4,7 +4,7 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-      findAllUsers: async () => {
+      me: async () => {
         return User.find({});
       }
     },
@@ -29,7 +29,18 @@ const resolvers = {
         const token = signToken(user)
 
         return {token, user}
-      }
+      },
+      saveBook: async (parent, {book}, context) => {
+        if (context.user){
+        const user = await User.findOneAndUpdate(
+          {_id: context.user._id},
+          {$addToSet: {savedBooks: book}},
+          {new: true}
+        )
+        return user
+        }
+        throw new AuthenticationError("Login to save books!")
+      }, 
     }
 }
 
