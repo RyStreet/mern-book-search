@@ -52,7 +52,25 @@ mutation saveBook($book: bookInput){
 }
 
 
-`
+`;
+
+export const REMOVE_BOOK = gql`
+mutation removeBook($bookId: String!){
+    removeBook(bookId: $bookId){
+        username
+        email
+        bookCount
+        savedBooks{
+            bookId
+            description
+            title
+            image
+            link
+            authors
+        }
+    }
+}
+`;
 
 
 
