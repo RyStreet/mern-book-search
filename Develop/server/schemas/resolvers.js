@@ -41,6 +41,16 @@ const resolvers = {
         }
         throw new AuthenticationError("Login to save books!")
       }, 
+      removeBook: async (parent, {bookId}, context) => {
+        if (context.user) {
+          const deleteBook = await User.findOneAndUpdate(
+            {_id: context.user._id},
+            {$pull:{savedBooks: {bookId: bookId}}},
+            {new: true}
+          )
+          return deleteBook
+        }
+      }
     }
 }
 
