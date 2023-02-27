@@ -7,7 +7,7 @@ query me{
     username
     email
     bookCount
-    savedBooks: {
+    savedBooks {
         _id
         bookId
         description
