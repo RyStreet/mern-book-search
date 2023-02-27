@@ -38,6 +38,7 @@ const SearchBooks = () => {
     try {
       const response = await searchGoogleBooks(searchInput);
 
+
       if (!response.ok) {
         throw new Error('something went wrong!');
       }
@@ -91,7 +92,7 @@ const SearchBooks = () => {
         <Container>
           <h1>Search for Books!</h1>
           <Form onSubmit={handleFormSubmit}>
-            <Form.Row>
+            {/* <Form.Row> */}
               <Col xs={12} md={8}>
                 <Form.Control
                   name='searchInput'
@@ -107,7 +108,7 @@ const SearchBooks = () => {
                   Submit Search
                 </Button>
               </Col>
-            </Form.Row>
+            {/* </Form.Row> */}
           </Form>
         </Container>
       </div>
@@ -134,7 +135,7 @@ const SearchBooks = () => {
                       <Button
                         disabled={savedBookIds?.some((savedBookId) => savedBookId === book.bookId)}
                         className='btn-block btn-info'
-                        onClick={() => handleSaveBook(book.bookId)}>
+                         onClick={() => handleSaveBook(book.bookId)}>
                         {savedBookIds?.some((savedBookId) => savedBookId === book.bookId)
                           ? 'This book has already been saved!'
                           : 'Save this Book!'}
