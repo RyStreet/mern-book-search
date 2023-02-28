@@ -16,10 +16,11 @@ import {GET_ME} from "../utils/queries";
 import {REMOVE_BOOK} from "../utils/mutations"
 
 const SavedBooks = () => {
-  const {loading, error, data } = useQuery(GET_ME)
-  console.log(JSON.stringify(error, null, 2))
-  const [deleteBook, ] = useMutation(REMOVE_BOOK)
+  const {loading, data } = useQuery(GET_ME)
+  console.log(data)
+  const [deleteBook] = useMutation(REMOVE_BOOK)
   const userData = data?.me || {};
+  console.log("UserData", userData)
 
   if(!userData.username){
     return(
