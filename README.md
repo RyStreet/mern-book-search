@@ -13,6 +13,8 @@ ___
 ___
   ## Description 
   This app utilizes the Google Books API to allow users to search for and save books to their profile. 
+  
+  Link to deployed app: https://silly-gooses.herokuapp.com
 ___
   ## Installation 
   Visit the deploment link to view the app on Heroku. Or download the app, run `npm i` in the terminal at the root folder, followed by `npm run develop` . From there, the app should launch in your browser or at localhost:3000.
